@@ -5,23 +5,25 @@
 </template>
 
 <script>
-import DataTable from './components/DataTable.vue'
+import DataTable from "./components/DataTable.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    DataTable
-  }
-}
+    DataTable,
+  },
+};
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
+
+* {
+  font-family: "Nunito", sans-serif;
+  margin: 0;
+}
+
+body {
+  margin: 0 !important;
 }
 </style>
