@@ -97,6 +97,8 @@ export default {
       }
     };
 
+    // Function for implement Pagination
+
     const paginatedData = computed(() => {
       const start = (currentPage.value - 1) * rowsPerPage.value;
       const end = start + parseInt(rowsPerPage.value);
@@ -104,6 +106,20 @@ export default {
         ? filteredComments.value
         : filteredComments.value.slice(start, end);
     });
+
+    const paginate = () => {
+      currentPage.value = 1;
+    };
+
+    const prevPage = () => {
+      if (currentPage.value > 1) currentPage.value--;
+    };
+
+    const nextPage = () => {
+      if (currentPage.value < totalPages.value) currentPage.value++;
+    };
+
+    // Sorting Function
 
     const filteredComments = computed(() => {
       return comments.value.filter(
@@ -118,6 +134,8 @@ export default {
       );
     });
 
+    // Function for Search data from the Comments table
+
     const debouncedSearch = debounce(() => {
       paginate();
     }, 300);
@@ -128,21 +146,13 @@ export default {
       });
     };
 
-    const paginate = () => {
-      currentPage.value = 1;
-    };
-
-    const prevPage = () => {
-      if (currentPage.value > 1) currentPage.value--;
-    };
-
-    const nextPage = () => {
-      if (currentPage.value < totalPages.value) currentPage.value++;
-    };
+    // Edit Table Data - ToDo
 
     const editComment = (comment) => {
       alert(`Edit comment ID: ${comment.id}`);
     };
+
+    // Remove Table Data
 
     const removeComment = (id) => {
       comments.value = comments.value.filter((comment) => comment.id !== id);
